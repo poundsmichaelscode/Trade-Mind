@@ -1,23 +1,13 @@
-# dependencies
-node_modules/
-.venv/
-venv/
-__pycache__/
-
-# build
-.next/
-dist/
-build/
-coverage/
-
-# env
+node_modules
+.next
+dist
+build
 .env
 .env.local
-.env.*.local
-
-# logs
-*.log
-
-# os
+__pycache__
+*.pyc
+.venv
 .DS_Store
-Thumbs.db
+coverage
+uploads
+apps/api/trademind.db

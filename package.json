@@ -1,14 +1,10 @@
 {
   "name": "trademind",
   "private": true,
-  "version": "0.1.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "workspaces": ["apps/*"],
   "scripts": {
-    "dev:web": "echo \"Initialize Next.js app in apps/web\"",
-    "dev:mobile": "echo \"Initialize Expo app in apps/mobile\"",
-    "dev:api": "echo \"Initialize FastAPI app in apps/api\""
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:api": "cd apps/api && uvicorn app.main:app --reload",
+    "build:web": "npm --workspace apps/web run build"
   }
 }
