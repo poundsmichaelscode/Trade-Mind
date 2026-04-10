@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { BarChart3, Bell, BrainCircuit, CreditCard, History, LayoutDashboard, LogIn, LogOut, Menu, PlusSquare, UserCircle2, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { apiFetch, clearToken, getToken, NotificationItem, User } from '@/lib/api';
+import { apiFetch, clearAuth, clearSessionCookies, getToken, NotificationItem, User } from '@/lib/api';
 
 const nav = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
@@ -35,11 +35,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     if (token) {
       Promise.all([apiFetch<User>('/auth/me'), apiFetch<NotificationItem[]>('/notifications').catch(() => [])])
         .then(([u, n]) => { setUser(u); setNotifications(n); })
-        .catch(() => { clearToken(); if (!publicRoutes.includes(pathname)) router.push('/login'); });
+        .catch(async () => { clearAuth(); await clearSessionCookies(); if (!publicRoutes.includes(pathname)) router.push('/login'); });
     }
   }, [pathname, router]);
 
-  const logout = () => { clearToken(); router.push('/login'); };
+  const logout = async () => {
+    const refreshToken = typeof window !== 'undefined' ? localStorage.getItem('tm_refresh_token') : null;
+    try {
+      if (refreshToken) await apiFetch('/auth/logout', { method: 'POST', body: JSON.stringify({ refresh_token: refreshToken }) });
+    } catch {}
+    clearAuth();
+    await clearSessionCookies();
+    router.push('/login');
+  };
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   return (

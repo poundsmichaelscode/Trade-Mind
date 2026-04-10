@@ -2,11 +2,13 @@ from __future__ import annotations
 from pathlib import Path
 import csv
 from openpyxl import Workbook
+from app.core.config import get_settings
 from app.models.models import Trade
 
 
-EXPORT_DIR = Path("exports")
-EXPORT_DIR.mkdir(exist_ok=True)
+settings = get_settings()
+EXPORT_DIR = Path(settings.export_dir)
+EXPORT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def _trade_rows(trades: list[Trade]):

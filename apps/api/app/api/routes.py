@@ -20,6 +20,7 @@ from app.models.models import BillingEvent, Notification, RefreshToken, Trade, U
 from app.schemas.schemas import (
     BillingInitializeRequest,
     BillingResponse,
+    BillingVerifyRequest,
     ExportCreateRequest,
     LoginRequest,
     LogoutRequest,
@@ -36,8 +37,10 @@ from app.services.calculations import calculate_trade_metrics
 from app.services.exports import export_trades
 from app.services.insights import generate_insights
 from app.services.notifications import seed_notifications
-from app.services.payments import create_checkout_session, safe_payload_text, verify_paystack_signature
+from app.services.jobs import enqueue_weekly_summary, send_upgrade_confirmation
+from app.services.payments import create_checkout_session, safe_payload_text, verify_paystack_signature, verify_transaction
 from app.services.uploads import save_trade_image
+from app.core.config import get_settings
 
 auth_router = APIRouter()
 trade_router = APIRouter()
@@ -49,6 +52,12 @@ upload_router = APIRouter()
 export_router = APIRouter()
 notification_router = APIRouter()
 security = HTTPBearer(auto_error=False)
+settings = get_settings()
+
+
+@analytics_router.get('/health')
+def analytics_health():
+    return {'status': 'ok'}
 
 
 def _issue_tokens(user: User, db: Session) -> TokenResponse:
@@ -118,12 +127,12 @@ def refresh_tokens(payload: RefreshRequest, db: Session = Depends(get_db)):
 
 
 @auth_router.post('/logout')
-def logout(payload: LogoutRequest, db: Session = Depends(get_db)):
-    token_row = db.query(RefreshToken).filter(RefreshToken.token == payload.refresh_token).first()
-    if token_row:
+def logout(payload: LogoutRequest, current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    rows = db.query(RefreshToken).filter(RefreshToken.user_id == current_user.id, RefreshToken.revoked.is_(False)).all()
+    for token_row in rows:
         token_row.revoked = True
         db.add(token_row)
-        db.commit()
+    db.commit()
     return {'success': True}
 
 
@@ -149,7 +158,9 @@ def list_trades(current_user: User = Depends(get_current_user), db: Session = De
 
 @trade_router.post('', response_model=TradeResponse)
 def create_trade(payload: TradeCreate, current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    monthly_count = db.query(Trade).filter(Trade.user_id == current_user.id).count()
+    month_key = (payload.open_time or '')[:7]
+    user_trades = db.query(Trade).filter(Trade.user_id == current_user.id).all()
+    monthly_count = len([t for t in user_trades if (t.open_time or '')[:7] == month_key])
     if current_user.subscription_plan == 'free' and monthly_count >= 20:
         raise HTTPException(status_code=403, detail='Free plan monthly trade limit reached')
 
@@ -268,6 +279,18 @@ def activate_pro(current_user: User = Depends(get_current_user), db: Session = D
     return {'success': True, 'plan': 'pro'}
 
 
+@billing_router.post('/verify')
+def billing_verify(payload: BillingVerifyRequest, current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    result = verify_transaction(payload.reference)
+    if result.get('verified'):
+        current_user.subscription_plan = 'pro'
+        current_user.subscription_status = 'active'
+        db.add(current_user)
+        db.commit()
+        send_upgrade_confirmation(current_user)
+    return result
+
+
 @billing_router.post('/cancel')
 def cancel_subscription(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     current_user.subscription_plan = 'free'
@@ -320,10 +343,15 @@ def create_export(payload: ExportCreateRequest, current_user: User = Depends(get
 
 @export_router.get('/download')
 def download_export(path: str, current_user: User = Depends(get_current_user)):
-    safe_path = Path('exports') / Path(path).name
+    safe_path = Path(settings.export_dir) / Path(path).name
     if not safe_path.exists():
         raise HTTPException(status_code=404, detail='Export not found')
     return FileResponse(safe_path)
+
+
+@notification_router.post('/queue-weekly-summary')
+def queue_weekly_summary(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    return enqueue_weekly_summary(current_user, db)
 
 
 @notification_router.get('', response_model=list[NotificationResponse])

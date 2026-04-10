@@ -5,6 +5,8 @@
   "scripts": {
     "dev:web": "npm --workspace apps/web run dev",
     "dev:api": "cd apps/api && uvicorn app.main:app --reload",
+    "dev:mobile": "npm --workspace apps/mobile run dev",
+    "dev:worker": "cd apps/api && celery -A app.worker.celery_app worker --loglevel=info",
     "build:web": "npm --workspace apps/web run build"
   }
 }

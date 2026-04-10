@@ -47,4 +47,4 @@ app.include_router(notification_router, prefix='/notifications', tags=['notifica
 
 @app.get('/')
 def root():
-    return {'name': settings.app_name, 'status': 'ok', 'phase': 4, 'version': settings.app_version}
+    return {'name': settings.app_name, 'status': 'ok', 'phase': 6, 'version': settings.app_version}

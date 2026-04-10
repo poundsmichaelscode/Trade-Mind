@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "TradeMind",
+    "slug": "trademind-mobile",
+    "scheme": "trademind",
+    "plugins": ["expo-router"],
+    "experiments": { "typedRoutes": true }
+  }
+}

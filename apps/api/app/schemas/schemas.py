@@ -18,7 +18,7 @@ class RefreshRequest(BaseModel):
 
 
 class LogoutRequest(BaseModel):
-    refresh_token: str
+    refresh_token: str | None = None
 
 
 class UserResponse(BaseModel):
@@ -111,3 +111,12 @@ class BillingResponse(BaseModel):
 
 class ExportCreateRequest(BaseModel):
     format: str = Field(pattern='^(csv|xlsx)$')
+
+
+class BillingVerifyRequest(BaseModel):
+    reference: str
+
+
+class SummaryQueueResponse(BaseModel):
+    queued: bool
+    notification_id: int
