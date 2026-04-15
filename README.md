@@ -8,7 +8,7 @@
 
 TradeMind is a full-stack SaaS platform built to help traders log trades, analyze performance, identify behavioral patterns, and improve decision-making through structured insights.
 
-Live Demo: https://trade-mind-web-bc1e.vercel.app/login
+Live Demo: https://trade-mind-web-bc1e.vercel.app
 
 ---
 
