@@ -97,7 +97,9 @@ export async function clearSessionCookies() {
   try {
     await safeFetch('/api/auth/clear', { method: 'POST', credentials: 'include' });
   } finally {
-    if (typeof document !== 'undefined') document.cookie = 'tm_client=; path=/; max-age=0; samesite=lax';
+    if (typeof document !== 'undefined') {
+      document.cookie = 'tm_client=; path=/; max-age=0; samesite=lax';
+    }
   }
 }
 
@@ -123,6 +125,10 @@ export function clearAuth() {
   document.cookie = 'tm_client=; path=/; max-age=0; samesite=lax';
 }
 
+export function apiBase() {
+  return API_URL;
+}
+
 export async function loginUser(email: string, password: string): Promise<AuthResponse> {
   const res = await safeFetch(`${API_URL}/auth/login`, {
     method: 'POST',
@@ -146,16 +152,19 @@ export async function registerUser(full_name: string, email: string, password: s
 async function refreshAccessToken(): Promise<string | null> {
   const refreshToken = getRefreshToken();
   if (!refreshToken) return null;
+
   const res = await safeFetch(`${API_URL}/auth/refresh`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ refresh_token: refreshToken }),
   });
+
   if (!res.ok) {
     clearAuth();
     await clearSessionCookies();
     return null;
   }
+
   const data = validateAuthResponse(await res.json(), 'Session refresh failed because tokens were missing.');
   setAuthTokens(data.access_token, data.refresh_token);
   await persistSessionCookies(data.access_token, data.refresh_token);
@@ -172,6 +181,7 @@ export async function apiFetch<T = any>(path: string, init: RequestInit = {}, re
   if (token) headers.set('Authorization', `Bearer ${token}`);
 
   let res = await safeFetch(`${API_URL}${path}`, { ...init, headers });
+
   if (res.status === 401 && retry && getRefreshToken()) {
     const nextAccess = await refreshAccessToken();
     if (nextAccess) {
@@ -181,6 +191,7 @@ export async function apiFetch<T = any>(path: string, init: RequestInit = {}, re
   }
 
   if (!res.ok) throw new Error(await parseResponseError(res, 'Request failed'));
+
   const contentType = res.headers.get('content-type') || '';
   if (contentType.includes('application/json')) return (await res.json()) as T;
   return res as T;
@@ -189,7 +200,10 @@ export async function apiFetch<T = any>(path: string, init: RequestInit = {}, re
 export async function uploadTradeImage(file: File) {
   const form = new FormData();
   form.append('file', file);
-  return apiFetch<{ url: string; name: string; note: string; provider: string }>('/uploads/trade-image', { method: 'POST', body: form });
+  return apiFetch<{ url: string; name: string; note: string; provider: string }>(
+    '/uploads/trade-image',
+    { method: 'POST', body: form }
+  );
 }
 
 export async function downloadProtectedFile(path: string, filename: string) {
