@@ -1,10 +1,11 @@
-import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
 
 export async function POST() {
   const cookieStore = await cookies();
-  cookieStore.delete("tm_access");
-  cookieStore.delete("tm_refresh");
-  cookieStore.delete("tm_client");
+  const secure = process.env.NODE_ENV === 'production';
+  cookieStore.set('tm_access', '', { httpOnly: true, sameSite: 'lax', secure, path: '/', maxAge: 0 });
+  cookieStore.set('tm_refresh', '', { httpOnly: true, sameSite: 'lax', secure, path: '/', maxAge: 0 });
+  cookieStore.set('tm_client', '', { httpOnly: false, sameSite: 'lax', secure, path: '/', maxAge: 0 });
   return NextResponse.json({ success: true });
 }

@@ -16,6 +16,8 @@ export default function AnalyticsPage() {
   useEffect(() => { Promise.all([apiFetch('/analytics/equity-curve'), apiFetch('/analytics/monthly-performance'), apiFetch('/analytics/assets'),
      apiFetch('/analytics/behavior')]).then(([eq, mo, as, be]) => { setEquity(eq.items || []); setMonthly(mo.items || []); 
       setAssets(as.items || []); setBehavior(be.items || []); }).catch(() => {}); }, []);
+
+      
   return <AppShell><div className="space-y-6"><MotionCard className="p-5">
     <SectionHeader title="Equity Curve" subtitle="Cumulative PnL across your trade history." />
 

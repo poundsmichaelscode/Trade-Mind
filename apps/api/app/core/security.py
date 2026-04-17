@@ -8,13 +8,7 @@ from passlib.context import CryptContext
 from app.core.config import get_settings
 
 settings = get_settings()
-
-# Use bcrypt_sha256 for new hashes so long passwords don't break bcrypt's 72-byte limit.
-# Keep plain bcrypt in the context temporarily so existing users can still log in.
-pwd_context = CryptContext(
-    schemes=["bcrypt_sha256", "bcrypt"],
-    deprecated="auto",
-)
+pwd_context = CryptContext(schemes=["bcrypt_sha256", "bcrypt"], deprecated="auto")
 
 
 def hash_password(password: str) -> str:
@@ -32,28 +26,16 @@ def verify_password(password: str, hashed: str) -> bool:
 
 def _create_token(subject: str, expires_delta: timedelta, token_type: str) -> str:
     expires = datetime.now(UTC) + expires_delta
-    payload = {
-        "sub": subject,
-        "type": token_type,
-        "exp": expires,
-    }
+    payload = {"sub": subject, "type": token_type, "exp": expires}
     return jwt.encode(payload, settings.secret_key, algorithm=settings.algorithm)
 
 
 def create_access_token(subject: str) -> str:
-    return _create_token(
-        subject,
-        timedelta(minutes=settings.access_token_expire_minutes),
-        "access",
-    )
+    return _create_token(subject, timedelta(minutes=settings.access_token_expire_minutes), "access")
 
 
 def create_refresh_token(subject: str) -> str:
-    return _create_token(
-        subject,
-        timedelta(days=settings.refresh_token_expire_days),
-        "refresh",
-    )
+    return _create_token(subject, timedelta(days=settings.refresh_token_expire_days), "refresh")
 
 
 def decode_token(token: str) -> dict:

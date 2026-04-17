@@ -1,6 +1,6 @@
 {
   "name": "trademind-mobile",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
@@ -11,13 +11,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
     "expo": "~53.0.0",
     "expo-router": "~5.0.0",
     "expo-status-bar": "~2.0.0",
     "react": "19.0.0",
     "react-native": "0.79.0",
     "react-native-safe-area-context": "5.4.0",
-    "react-native-screens": "~4.11.1",
-    "@expo/vector-icons": "^14.1.0"
+    "react-native-screens": "~4.11.1"
   }
 }
