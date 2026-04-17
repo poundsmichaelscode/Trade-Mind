@@ -11,3 +11,6 @@ __pycache__
 coverage
 uploads
 apps/api/trademind.db
+.env.example
+.env.local.example
+
