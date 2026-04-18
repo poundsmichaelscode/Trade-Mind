@@ -41,8 +41,30 @@ export default function ProfilePage() {
     </div>
     <div>
 
+
+
       <label className="mb-2 block text-sm text-slate-400">Timezone</label>
-      <input value={user.timezone} onChange={(e) => setUser({ ...user, timezone: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white" />
+
+<select
+  value={user.timezone}
+  onChange={(e) => setUser({ ...user, timezone: e.target.value })}
+  className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white"
+>
+  <option value="">Select your timezone</option>
+  <option value="UTC">UTC</option>
+  <option value="Africa/Lagos">Africa/Lagos (GMT+1)</option>
+  <option value="Europe/London">Europe/London (GMT+0/+1)</option>
+  <option value="America/New_York">America/New_York (GMT-5/-4)</option>
+  <option value="America/Los_Angeles">America/Los_Angeles (GMT-8/-7)</option>
+  <option value="Asia/Dubai">Asia/Dubai (GMT+4)</option>
+  <option value="Asia/Kolkata">Asia/Kolkata (GMT+5:30)</option>
+  <option value="Asia/Shanghai">Asia/Shanghai (GMT+8)</option>
+  <option value="Asia/Tokyo">Asia/Tokyo (GMT+9)</option>
+  <option value="Australia/Sydney">Australia/Sydney (GMT+10/+11)</option>
+</select>
+
+      {/* <label className="mb-2 block text-sm text-slate-400">Timezone</label>
+      <input value={user.timezone} onChange={(e) => setUser({ ...user, timezone: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white" /> */}
       </div>
       <div>
 
