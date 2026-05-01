@@ -12,7 +12,7 @@ It is designed for forex, crypto, indices, and retail traders who want more than
 
 ### Frontend
 
-[https://trade-mind-web-bc1e.vercel.app/login](https://trade-mind-web-bc1e.vercel.app/login)
+[https://trade-mind-web.vercel.app](https://trade-mind-web.vercel.app)
 
 ### Backend
 
