@@ -1,21 +1,23 @@
-````markdown
+````md
 # TradeMind
 
 **Smart Trading Journal & Performance Analytics SaaS**
 
-TradeMind is a full-stack SaaS application built to help traders log trades, analyze performance, identify behavioral patterns, and improve decision-making through structured insights and analytics.
+TradeMind is a full-stack SaaS platform built to help traders log trades, analyze performance, identify behavioral patterns, and improve trading discipline through structured insights and analytics.
 
-It is designed for forex and crypto traders who want more than spreadsheets, screenshots, broker history, and scattered notes. TradeMind gives them a centralized platform to journal trades, monitor performance, review risk behavior, and grow toward consistency.
+It is designed for forex, crypto, indices, and retail traders who want more than spreadsheets, screenshots, broker history, and scattered notes. TradeMind gives traders one centralized platform to journal trades, monitor performance, review risk behavior, and grow toward consistency.
 
 ---
 
 ## Live Demo
 
-**Frontend:**  
-`https://trade-mind-web-bc1e.vercel.app/login`
+### Frontend
 
-**Backend:**  
-`https://trade-mind.onrender.com`
+[https://trade-mind-web-bc1e.vercel.app/login](https://trade-mind-web-bc1e.vercel.app/login)
+
+### Backend
+
+[https://trade-mind.onrender.com](https://trade-mind.onrender.com)
 
 ---
 
@@ -54,250 +56,282 @@ It is designed for forex and crypto traders who want more than spreadsheets, scr
 
 TradeMind is a modern trading journal and performance analytics platform built to help traders move from unstructured trade history to measurable improvement.
 
-The project combines:
+The platform combines secure authentication, trade journaling, performance analytics, smart insights, export workflows, and SaaS-ready architecture.
 
-- secure authentication
-- trade journaling
-- trade metric calculation
-- historical trade analysis
-- smart insights
-- CSV / Excel export
-- subscription-ready product structure
-- deployment-ready frontend and backend architecture
-
-This project was built as a **real product-oriented engineering system**, not just a UI exercise or dashboard clone.
+TradeMind was built as a real product-oriented engineering system, not just a UI dashboard clone.
 
 ---
 
 ## The Problem
 
-Retail traders often struggle with consistency because they do not have a reliable review system.
+Retail traders often struggle with consistency because they do not have a reliable trade review system.
 
-Most traders track their activity through:
+Many traders track their activity through:
 
-- spreadsheets
-- screenshots
-- broker platform history
-- notebooks
-- note-taking apps
-- memory
+- Spreadsheets
+- Screenshots
+- Broker platform history
+- Notebooks
+- Notes apps
+- Memory
 
-That causes serious problems:
+This creates several problems:
 
-- inconsistent journaling
-- poor visibility into performance trends
-- weak risk review
-- no easy way to identify habits that hurt profitability
-- manual calculation fatigue
-- no unified product for analytics and reflection
+- Inconsistent journaling
+- Poor visibility into performance trends
+- Weak risk review
+- No easy way to identify bad trading habits
+- Manual calculation fatigue
+- No unified analytics system
 
-Many traders execute frequently but do not have a good system for learning from their trades.
+Many traders execute trades frequently but do not have a structured system for learning from their past decisions.
 
 ---
 
 ## The Solution
 
-TradeMind acts as a **trader performance intelligence platform**.
+TradeMind acts as a **Trader Performance Intelligence Platform**.
 
 It gives traders a place to:
 
-- log trades with full context
-- automatically calculate key metrics
-- track performance over time
-- identify patterns in results
-- export trade journals
-- use a product structure that can support free and Pro plans
+- Log trades with proper context
+- Automatically calculate trade metrics
+- Track performance over time
+- Identify profitable and weak patterns
+- Export trade journals
+- Manage a SaaS-ready Free and Pro product structure
 
-Instead of focusing on execution or brokerage functionality, TradeMind focuses on something many traders ignore:
+Instead of focusing on broker execution, TradeMind focuses on something many traders ignore:
 
-> reviewing trading behavior and learning from it consistently.
+> Reviewing trading behavior and learning from it consistently.
 
 ---
 
 ## Core Features
 
 ### 1. Authentication
-- Email/password signup
-- Email/password login
-- JWT-based access token authentication
+
+TradeMind includes a secure authentication system with:
+
+- Email and password signup
+- Email and password login
+- JWT access tokens
 - Refresh token flow
 - Protected routes
-- Session persistence between page reloads
+- Session persistence
+
+---
 
 ### 2. Trade Journal
-Users can create, edit, and review trades with:
 
-- asset
-- market type
-- direction
-- entry price
-- exit price
-- position size
-- stop loss
-- take profit
-- open time
-- close time
-- notes
-- session tag
-- setup tag
-- screenshot/image upload
+Users can create, edit, and review trades with detailed information such as:
 
-### 3. Automatic Calculations
-The backend calculates:
+- Asset
+- Market type
+- Direction
+- Entry price
+- Exit price
+- Position size
+- Stop loss
+- Take profit
+- Open time
+- Close time
+- Notes
+- Session tag
+- Setup tag
+- Screenshot upload
 
-- profit/loss
-- profit/loss percentage
-- risk amount
-- reward amount
-- risk/reward ratio
-- holding duration
-- trade outcome
+---
+
+### 3. Automatic Trade Calculations
+
+The backend calculates important trade metrics such as:
+
+- Profit and loss
+- Profit percentage
+- Risk amount
+- Reward amount
+- Risk-to-reward ratio
+- Holding duration
+- Trade outcome
+
+---
 
 ### 4. Analytics Dashboard
-The dashboard includes:
 
-- total trades
-- win rate
-- total PnL
-- average RR ratio
-- asset performance
-- session performance
-- monthly performance
-- equity curve
+The analytics dashboard provides traders with key performance data, including:
+
+- Total trades
+- Win rate
+- Total profit and loss
+- Average risk-to-reward ratio
+- Asset performance
+- Session performance
+- Monthly performance
+- Equity curve
+
+---
 
 ### 5. Smart Insights
-TradeMind highlights behavioral patterns such as:
 
-- weak performance on certain weekdays
-- stronger performance on certain assets
-- excessive risk behavior
-- average loss larger than average win
-- session-specific performance trends
+TradeMind highlights trading patterns such as:
 
-### 6. Export
-- CSV export
-- Excel export
-- protected file downloads with authentication
+- Weak trading weekdays
+- Stronger-performing assets
+- Excessive risk behavior
+- Average loss greater than average win
+- Session-specific trends
+
+---
+
+### 6. Export System
+
+Users can export their trade journal data in:
+
+- CSV format
+- Excel format
+
+Exports are protected and require valid authentication.
+
+---
 
 ### 7. SaaS Product Structure
-- free plan direction
+
+TradeMind is structured to support future SaaS monetization with:
+
+- Free plan direction
 - Pro plan direction
-- feature gating foundation
-- billing-ready backend architecture
+- Feature gating foundation
+- Billing-ready backend architecture
 
-### 8. Profile & Preferences
-Users can manage:
+---
 
-- full name
-- risk preference
-- trading style
-- timezone
-- subscription state
+### 8. Profile and Preferences
+
+Users can manage profile and trading preferences such as:
+
+- Full name
+- Risk preference
+- Trading style
+- Timezone
+- Subscription state
 
 ---
 
 ## Product Goals
 
-The main goals of TradeMind are:
+The main goals of TradeMind are to:
 
-- help traders journal consistently
-- give users useful performance analytics
-- expose patterns in trading behavior
-- reduce manual review work
-- support a SaaS monetization direction
-- demonstrate real product engineering depth
+- Help traders journal consistently
+- Provide useful performance analytics
+- Expose behavioral trading patterns
+- Reduce manual review work
+- Support SaaS monetization
+- Demonstrate real full-stack engineering depth
 
 ---
 
 ## Target Users
 
-TradeMind is designed primarily for:
-
 ### Beginner Traders
-Need a structured way to track and review trades.
+
+Traders who need a structured journaling system.
 
 ### Intermediate Traders
-Need performance breakdowns and behavior insights.
+
+Traders who need performance breakdowns, analytics, and trading insights.
 
 ### Advanced Retail Traders
-Need faster journaling, analytics, exports, and discipline tracking.
 
-Markets supported conceptually include:
+Traders who need fast journaling, exports, detailed analytics, and discipline tracking.
 
-- forex
-- crypto
-- indices
-- other speculative trading assets
+### Supported Markets
+
+TradeMind can support journaling for:
+
+- Forex
+- Crypto
+- Indices
+- Other speculative assets
 
 ---
 
 ## User Stories
 
 ### Main User Story
-As a trader, I want to log each trade with full context and review my performance over time, so I can identify mistakes, improve discipline, and become more consistent.
+
+As a trader, I want to log each trade with context and review my performance over time so I can identify mistakes, improve discipline, and become more consistent.
 
 ### Supporting User Stories
-- As a user, I want secure signup and login so my data stays private.
-- As a trader, I want automatic PnL and RR calculations so I do not calculate everything manually.
-- As a user, I want to see my trade history in a structured dashboard.
-- As a trader, I want analytics that help me spot strengths and weaknesses.
-- As a Pro user, I want export functionality for deeper review.
-- As a user, I want a responsive app that works across devices.
-- As a product owner, I want the system to be deployable on Vercel and Render.
+
+- As a user, I want to securely sign up and log in.
+- As a trader, I want my profit, loss, and risk-to-reward values calculated automatically.
+- As a trader, I want a dashboard that summarizes my trading performance.
+- As a trader, I want to identify my strengths and weaknesses.
+- As a trader, I want to export my journal data.
+- As a user, I want the app to work across devices.
+- As a developer or reviewer, I want a deployable and maintainable architecture.
 
 ---
 
 ## Architecture
 
-TradeMind uses a **web-first full-stack architecture** with a monorepo structure.
+TradeMind uses a **web-first full-stack monorepo architecture**.
 
-### High-Level Architecture
+### Frontend
 
-#### Frontend
-Built with Next.js and TypeScript for:
-- login/signup
-- dashboard
-- analytics
-- trade history
-- trade entry
-- profile/settings
-- export workflows
+The frontend is built with Next.js and TypeScript. It handles:
 
-#### Backend
-Built with FastAPI for:
-- auth
-- token generation and refresh
-- trade CRUD
-- calculation logic
-- analytics aggregation
-- export generation
-- file uploads
-- notifications foundation
-- billing-ready endpoints
+- Login and signup pages
+- Dashboard layout
+- Analytics pages
+- Trade history
+- Trade entry forms
+- Profile and settings
+- Export workflows
 
-#### Data Layer
-Stores:
-- users
-- trades
-- refresh tokens
-- notifications
-- billing events
-- export records
+### Backend
 
-#### Infra Layer
-Supports:
-- Docker / Docker Compose for local development
-- Render deployment for backend
-- Vercel deployment for frontend
-- PostgreSQL for production
-- SQLite fallback for local development
-- future Redis/worker support
+The backend is built with FastAPI. It handles:
+
+- Authentication
+- Token generation and refresh
+- Trade CRUD operations
+- Trade calculation logic
+- Analytics aggregation
+- Export generation
+- File uploads
+- Billing-ready endpoints
+
+### Data Layer
+
+The data layer stores:
+
+- Users
+- Trades
+- Refresh tokens
+- Notifications
+- Billing events
+- Export records
+
+### Infrastructure Layer
+
+The infrastructure setup supports:
+
+- Docker
+- Docker Compose
+- Render deployment
+- Vercel deployment
+- PostgreSQL production database
+- SQLite local development fallback
+- Future Redis and worker integration
 
 ---
 
 ## Tech Stack
 
 ### Frontend
+
 - Next.js
 - TypeScript
 - Tailwind CSS
@@ -306,30 +340,33 @@ Supports:
 - Lucide React
 
 ### Backend
+
 - FastAPI
 - SQLAlchemy
 - Pydantic
-- Pydantic Settings
 - Passlib
 - bcrypt
 - python-jose
 - Uvicorn
 
 ### Database
-- PostgreSQL for production
-- SQLite for local fallback
 
-### DevOps / Hosting
+- PostgreSQL
+- SQLite for local development
+
+### DevOps and Hosting
+
 - Docker
 - Docker Compose
 - Vercel
 - Render
 
-### Future-Ready Integrations
+### Future Integrations
+
 - Cloudinary
 - Paystack
 - Redis
-- Celery / worker flow
+- Celery
 - Resend
 
 ---
@@ -338,82 +375,66 @@ Supports:
 
 ```text
 Trade-Mind/
-  apps/
-    web/
-      app/
-      components/
-      lib/
-      public/
-      styles/
-      package.json
-    api/
-      app/
-        api/
-        core/
-        db/
-        models/
-        schemas/
-        services/
-        tests/
-      requirements.txt
-      requirements-dev.txt
-    mobile/
-      app/
-      components/
-      package.json
-  docs/
-    deployment.md
-  render.yaml
-  docker-compose.yml
-  README.md
+│
+├── apps/
+│   ├── web/
+│   ├── api/
+│   └── mobile/
+│
+├── docs/
+├── render.yaml
+├── docker-compose.yml
+└── README.md
 ````
 
 ---
 
 ## Authentication Flow
 
-TradeMind uses token-based authentication.
-
-### Auth flow summary
-
-1. User signs up or logs in
+1. User signs up or logs in.
 2. Backend returns:
 
    * `access_token`
    * `refresh_token`
    * `user`
-3. Frontend stores tokens in local storage
-4. Frontend persists session cookies through internal auth routes
-5. Protected requests include `Authorization: Bearer <token>`
-6. On `401`, frontend attempts refresh
-7. If refresh succeeds, request is retried
+3. Frontend stores the tokens.
+4. Protected requests use the authorization header:
 
-### Auth-related security improvements
+```text
+Authorization: Bearer <token>
+```
 
-* refresh token support
-* cookie persistence helpers
-* protected file download flow
-* safer frontend fetch handling
-* better auth response validation
+5. If a `401 Unauthorized` response occurs, the frontend sends a refresh token request.
+6. The original request is retried using a new access token.
+
+### Security Improvements
+
+* Refresh token support
+* Protected downloads
+* Safer fetch handling
+* Session persistence
+* Protected frontend routes
 
 ---
 
 ## Trade Analytics Logic
 
-TradeMind calculates and aggregates performance data from user trades.
+### Trade Fields Used
 
-### Trade fields used
+TradeMind uses the following fields to calculate trade performance:
 
-* entry price
-* exit price
-* direction
-* position size
-* stop loss
-* take profit
-* open time
-* close time
+* Entry price
+* Exit price
+* Direction
+* Position size
+* Stop loss
+* Take profit
+* Open time
+* Close time
 
-### Calculated values
+### Calculated Values
+
+The backend calculates:
 
 * `profit_loss`
 * `profit_loss_percent`
@@ -423,149 +444,113 @@ TradeMind calculates and aggregates performance data from user trades.
 * `holding_minutes`
 * `outcome`
 
-### Higher-level analytics
+### Higher-Level Analytics
 
-* total trades
-* win rate
-* total PnL
-* average RR ratio
-* performance by asset
-* performance by session
-* monthly performance
-* equity curve
+TradeMind also generates higher-level analytics such as:
 
-### Insight strategy
+* Total trades
+* Win rate
+* Total profit and loss
+* Average risk-to-reward ratio
+* Performance by asset
+* Performance by session
+* Monthly performance
+* Equity curve
 
-The current product uses **deterministic analytics** rather than depending entirely on AI.
+### Insight Strategy
 
-That means the system is:
+TradeMind currently uses **deterministic analytics** instead of relying fully on artificial intelligence.
 
-* easier to test
-* easier to debug
-* cheaper to run
-* more explainable
-* more realistic as an MVP
+This approach is useful for an MVP because it is:
+
+* Easier to test
+* Easier to debug
+* Cheaper to run
+* More explainable
+* A stronger foundation for future AI features
 
 ---
 
 ## Export Flow
 
-TradeMind supports protected data export.
+TradeMind supports authenticated export downloads.
 
-### Supported formats
+### Supported Formats
 
 * CSV
 * Excel
 
-### Export design
+### Flow
 
-1. User requests export from frontend
-2. Backend creates export file
-3. Frontend downloads file using an authenticated helper
-4. File downloads only when valid tokens are present
-
-This avoids insecure direct file access and prevents export failures caused by unauthenticated `window.open()` behavior.
+1. User requests an export.
+2. Backend generates the export file.
+3. Frontend downloads the file using an authenticated helper.
+4. A valid access token is required before the download is allowed.
 
 ---
 
 ## Deployment Strategy
 
-### Recommended Production Setup
+### Production Setup
 
 * **Frontend:** Vercel
 * **Backend:** Render
-* **Database:** Render Postgres
+* **Database:** Render PostgreSQL
 
-### Why this setup
+### Why This Setup?
 
-It is the cleanest fit for the current architecture:
+This deployment stack was selected because it provides:
 
-* frontend deploys easily on Vercel
-* FastAPI works well on Render
-* Postgres is managed cleanly in Render
-* environment variables are easy to manage
-* deployment complexity stays low
+* Easy deployment
+* Good FastAPI support
+* Managed PostgreSQL
+* Simple environment variable management
+* Clear separation between frontend and backend services
 
 ---
 
 ## Environment Variables
 
-## Frontend local example
+### Frontend
 
-Create `apps/web/.env.local`
+Create a `.env.local` file inside `apps/web`.
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-## Frontend production example
+### Production Frontend
 
-Set in Vercel:
+On Vercel, set:
 
 ```env
 NEXT_PUBLIC_API_URL=https://trade-mind.onrender.com
 ```
 
-## Backend local example
+### Backend
 
-Create `apps/api/.env`
-
-```env
-APP_ENV=development
-APP_VERSION=0.6.4
-DATABASE_URL=sqlite:///./trademind.db
-SECRET_KEY=change-this-in-production
-ACCESS_TOKEN_EXPIRE_MINUTES=50
-REFRESH_TOKEN_EXPIRE_DAYS=7
-CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
-PAYSTACK_SECRET_KEY=sk_test_xxx
-PAYSTACK_PUBLIC_KEY=pk_test_xxx
-PAYSTACK_WEBHOOK_SECRET=paystack-webhook-secret
-PAYSTACK_CALLBACK_URL=http://localhost:3000/pricing?upgraded=1
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-CLOUDINARY_FOLDER=trademind
-RESEND_API_KEY=
-MAIL_FROM=TradeMind <noreply@trademind.app>
-```
-
-## Backend production example
-
-Set in Render:
+Create a `.env` file inside `apps/api`.
 
 ```env
 APP_ENV=production
-APP_VERSION=0.6.4
-DATABASE_URL=your_actual_render_postgres_internal_url
-SECRET_KEY=your_long_random_secret
+DATABASE_URL=postgresql://username:password@host:port/database
+SECRET_KEY=your-secret-key
 ACCESS_TOKEN_EXPIRE_MINUTES=50
 REFRESH_TOKEN_EXPIRE_DAYS=7
-CORS_ORIGINS=https://trade-mind-web-bc1e.vercel.app
-PAYSTACK_SECRET_KEY=your_paystack_secret
-PAYSTACK_PUBLIC_KEY=your_paystack_public
-PAYSTACK_WEBHOOK_SECRET=your_paystack_webhook_secret
-PAYSTACK_CALLBACK_URL=https://trade-mind-web-bc1e.vercel.app/pricing?upgraded=1
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-CLOUDINARY_FOLDER=trademind
-RESEND_API_KEY=your_resend_api_key
-MAIL_FROM=TradeMind <noreply@trademind.app>
 ```
 
 ---
 
 ## Local Development Setup
 
-## 1. Clone the repo
+### 1. Clone the Repository
 
 ```bash
 git clone <your-repo-url>
 cd Trade-Mind
 ```
 
-## 2. Frontend setup
+### 2. Run the Frontend
 
 ```bash
 cd apps/web
@@ -573,121 +558,121 @@ npm install
 npm run dev
 ```
 
-## 3. Backend setup
+The frontend should run on:
 
-Use Python 3.12 or 3.13.
+```text
+http://localhost:3000
+```
+
+### 3. Run the Backend
 
 ```bash
 cd apps/api
-python3.13 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
-pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-### Important
+The backend should run on:
 
-Do not use Python 3.14 for this backend stack if `pydantic-core` build issues appear in your environment.
+```text
+http://localhost:8000
+```
+
+### 4. Backend API Docs
+
+FastAPI automatically provides API documentation at:
+
+```text
+http://localhost:8000/docs
+```
 
 ---
 
 ## Docker Setup
 
-For local Docker development:
+From the root of the project, run:
 
 ```bash
 docker compose up --build
 ```
 
-### Notes
+To stop containers:
 
-* Docker uses service names like `db` and `redis`
-* those names work only inside Docker Compose
-* do not reuse them in Render production env vars
+```bash
+docker compose down
+```
+
+To rebuild from scratch:
+
+```bash
+docker compose down -v
+docker compose up --build
+```
 
 ---
 
 ## Render Backend Deployment
 
-### Recommended service settings
+### Recommended Render Settings
 
-* **Root Directory:** `apps/api`
-* **Runtime:** Python
-* **Build Command:**
+| Setting        | Value                                              |
+| -------------- | -------------------------------------------------- |
+| Service Type   | Web Service                                        |
+| Root Directory | `apps/api`                                         |
+| Runtime        | Python                                             |
+| Build Command  | `pip install -r requirements.txt`                  |
+| Start Command  | `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
 
-```bash
-pip install -r requirements.txt
+### Required Environment Variables on Render
+
+```env
+APP_ENV=production
+DATABASE_URL=your-render-postgres-url
+SECRET_KEY=your-production-secret-key
+ACCESS_TOKEN_EXPIRE_MINUTES=50
+REFRESH_TOKEN_EXPIRE_DAYS=7
 ```
-
-* **Start Command:**
-
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port $PORT
-```
-
-### Important
-
-On Render, use the actual Postgres URL from your Render database service.
-
-Do **not** use:
-
-* `db`
-* `localhost`
-* placeholder strings like `your_render_postgres_internal_url`
-
-### Health check endpoints
-
-After deploy, confirm these open:
-
-* `/`
-* `/docs`
-* `/openapi.json`
 
 ---
 
 ## Vercel Frontend Deployment
 
-### Project settings
+### Recommended Vercel Settings
 
-* **Root Directory:** `apps/web`
-* **Framework:** Next.js
+| Setting          | Value           |
+| ---------------- | --------------- |
+| Framework Preset | Next.js         |
+| Root Directory   | `apps/web`      |
+| Build Command    | `npm run build` |
+| Output Directory | `.next`         |
 
-### Required env var
+### Required Environment Variable on Vercel
 
 ```env
 NEXT_PUBLIC_API_URL=https://trade-mind.onrender.com
 ```
 
-### Important
-
-If the API URL changes, redeploy the frontend after updating the env variable.
+After adding the environment variable, redeploy the project.
 
 ---
 
 ## Testing
 
-Basic backend tests are included.
-
-### Example test areas
-
-* security helpers
-* config behavior
-* calculations
-
-### Run backend tests
+### Backend Tests
 
 ```bash
 cd apps/api
-source .venv/bin/activate
-pip install -r requirements-dev.txt
 pytest
 ```
 
-If you added a root script, you may also use:
+### Frontend Checks
 
 ```bash
-npm run test:api
+cd apps/web
+npm run lint
+npm run build
 ```
 
 ---
@@ -696,120 +681,104 @@ npm run test:api
 
 ### Phase 1
 
-* frontend UI
-* dashboard screens
-* analytics layout
-* auth screens
+* UI screens
+* Authentication pages
+* Dashboard layout
 
 ### Phase 2
 
-* backend integration
-* signup/login flow
-* live trade creation
-* trade history wiring
+* Backend integration
+* Signup and login
+* Trade CRUD operations
 
 ### Phase 3
 
-* export system
-* upload flow
-* pricing direction
-* Docker support
+* Export system
+* Upload flow
+* Pricing direction
 
 ### Phase 4
 
-* improved auth architecture
-* refresh token flow
-* PostgreSQL-ready config
-* better deployment direction
-
-### Phase 5
-
-* deployment hardening
-* config cleanup
-* improved protected downloads
-* backend reliability fixes
-
-### Phase 6
-
-* mobile scaffold
-* worker-ready foundation
-* stronger session handling
-* monorepo cleanup
+* Improved authentication
+* PostgreSQL-ready configuration
+* Deployment stability
 
 ### Future Improvements
 
-* broker integrations
+* Broker integrations
 * AI coaching assistant
-* offline mobile sync
-* push notifications
-* trader benchmarking
-* deeper behavioral analytics
+* Mobile offline sync
+* Push notifications
+* Deeper trade analytics
+* Pro plan feature gating
+* Screenshot-based trade analysis
+* Payment integration
 
 ---
 
 ## Engineering Challenges Solved
 
-This project involved solving several real-world issues:
+This project solves several real-world engineering challenges, including:
 
-* auth token/session persistence problems
-* protected file export download failures
-* bcrypt / passlib compatibility issues
-* monorepo workspace dependency conflicts
-* Docker vs Render environment mismatch
-* frontend/backend deployment coordination
-* mobile browser fetch failures caused by backend instability
-* Vercel build failures from broken imports and outdated Next.js versions
+* Auth persistence issues
+* Protected export failures
+* bcrypt and passlib conflicts
+* Monorepo dependency issues
+* Docker and Render environment mismatch
+* Frontend and backend coordination
+* Mobile fetch instability
+* Vercel build failures
+* Production API environment configuration
 
 ---
 
 ## Why This Project Matters
 
-TradeMind is not just a UI dashboard. It demonstrates:
+TradeMind is not just a dashboard.
 
-* product thinking
+It demonstrates:
+
+* Product thinking
 * SaaS architecture
-* backend business logic
-* real auth/session handling
-* deployment-aware engineering
-* analytics-focused feature design
-* monetization-ready structure
+* Backend business logic
+* Authentication and session handling
+* Deployment-aware engineering
+* Monetization-ready structure
+* Real-world full-stack development
 
-It is a strong full-stack portfolio project because it shows both:
-
-* user-centered product design
-* practical engineering depth
+This makes it a strong portfolio project for showcasing product engineering, backend architecture, frontend implementation, and SaaS development capability.
 
 ---
 
 ## Recruiter Summary
 
-TradeMind is a full-stack SaaS trading journal and analytics platform built to help traders improve consistency through structured trade logging, automated metrics, performance dashboards, and behavioral insights.
+TradeMind is a full-stack SaaS trading journal and analytics platform that helps traders improve consistency through structured trade logging, automated metrics, performance dashboards, and behavioral insights.
 
 This project demonstrates:
 
-* modern frontend development
-* backend API architecture
-* auth and session handling
-* protected exports
-* deployment readiness
-* product-oriented engineering
-
-It was built as a real system with business value, not just a visual prototype.
+* Modern frontend development
+* Backend API architecture
+* Authentication systems
+* Protected export workflows
+* Deployment readiness
+* SaaS product thinking
+* Product-oriented engineering
 
 ---
 
 ## Author
 
 **Olayenikan Michael Olaniyi**
+
 Built under **PoundsMichaels Digitals**
 
-GitHub: `poundsmichaelscode`
+GitHub: [`poundsmichaelscode`](https://github.com/poundsmichaelscode)
 
 ---
 
 ## License
 
 This project is intended for portfolio, educational, and demonstration purposes unless otherwise specified.
-
+pounds michels Digitals
 ```
 ```
