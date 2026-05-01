@@ -1,4 +1,3 @@
-````md
 # TradeMind
 
 **Smart Trading Journal & Performance Analytics SaaS**
@@ -385,6 +384,7 @@ Trade-Mind/
 ├── render.yaml
 ├── docker-compose.yml
 └── README.md
+
 ````
 
 ---
@@ -779,6 +779,6 @@ GitHub: [`poundsmichaelscode`](https://github.com/poundsmichaelscode)
 ## License
 
 This project is intended for portfolio, educational, and demonstration purposes unless otherwise specified.
-pounds michels Digitals
+
 ```
 ```
